@@ -1,0 +1,171 @@
+@0411: #b717e5;
+@0412: #6c19f6;
+@0311: #59c5ff;
+@0312: #f2a437;
+@0313: #ff3657;
+@0314: #fff100;
+@0315: #44cf89;
+@0316: #4a156e;
+@0317: #7e46a2;
+@0318: #d193f7;
+@0311p: #35aae1;
+@0312p: #d38a17;
+@0313p: #e10041;
+@0314p: #d4c606;
+@0315p: #009957;
+@0316p: #2e0054;
+@0317p: #4a156e;
+@0318p: #b479da;
+@0321: #1a1a1a;
+@0322: #666666;
+@0323: #999999;
+@0324: #ffffff;
+@0322p: #373737;
+@0323p: #666666;
+@0324p: #e2e2e2;
+@0331: #bfbfbf;
+@0332: #e6e6e6;
+@0333: #f2f2f2;
+@0333p: #a3a3a3;
+@0341: #b7f3d5;
+@0342: #9eddff;
+@0343: #ffb0bd;
+@0344: #f5bb44;
+@0345: #9b6ccd;
+@F1: 36px;
+@F2: 32px;
+@F3: 28px;
+@F4: 24px;
+@F5: 22px;
+@F6: 20px;
+.mask() {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+}
+
+// flexbox兼容性写法
+.display-flex() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex(@ratio: 1) {
+    -webkit-box-flex: @ratio;
+    -moz-box-flex: @ratio;
+    -webkit-flex: @ratio;
+    -ms-flex: @ratio;
+    flex: @ratio;
+}
+
+.justify-content(@pos) {
+    -webkit-box-pack: @pos;
+    -webkit-justify-content: @pos;
+    -moz-justify-content: @pos;
+    -ms-justify-content: @pos;
+    -o-justify-content: @pos;
+    justify-content: @pos;
+}
+
+.align-items(@pos) {
+    -webkit-box-align: @pos;
+    /* 12版 */
+    -webkit-align-items: @pos;
+    -moz-align-items: @pos;
+    -ms-align-items: @pos;
+    -o-align-items: @pos;
+    align-items: @pos;
+}
+
+// transform
+.transform(@param) {
+    transform: @param;
+    -ms-transform: @param;
+    -webkit-transform: @param;
+    -o-transform: @param;
+    -moz-transform: @param;
+}
+
+@root: 100rem;
+// reset.css
+html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html,
+body,
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+section,
+footer,
+form,
+input,
+pre,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input,
+button {
+    background: 0 none;
+    border: 0 none;
+    outline: 0 none;
+}
+
+@font-face {
+    font-family:'iconfont';
+    src:    url('../fonts/icomoon.eot?p04hk7');
+    src:    url('../fonts/icomoon.eot?p04hk7#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?p04hk7') format('truetype'),
+    url('../fonts/icomoon.woff?p04hk7') format('woff'),
+    url('../fonts/icomoon.svg?p04hk7#icomoon') format('svg');
+}
+
+[class^='icon-'],
+[class*='icon-']{
+    font-family:'iconfont'!important ;
+    font-family:normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-female::before{
+    content:"\e94f";
+}
+
+

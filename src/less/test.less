@@ -1,0 +1,103 @@
+@import "public";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+@WHOLE_HEIGHT: 1334;
+@TOP_BAR_MARGIN: 130px;
+
+.son {
+  height: inherit;
+  float: left;
+}
+
+.add-background-color(@color-name) {
+  background-color: @color-name;
+}
+
+.round(@radius) {
+  width: @radius;
+  height: @radius;
+  border-radius: 0.5*@radius;
+}
+
+.sex-block(@bg-color) {
+  width: 51px;
+  height: 25px;
+  border-radius: 1px;
+  color: #ffffff;
+  font-size: 15px;
+  background-color: @bg-color;
+  line-height: 25px;
+  text-align: center;
+  float: left;
+  margin-right: 13px;
+}
+
+.container {
+  width: 750px;
+  height: @WHOLE_HEIGHT;
+  margin-top: @TOP_BAR_MARGIN;
+  & > div {
+    width: inherit;
+  }
+  .activity {
+    height: 500px;
+    & > div {
+      .son();
+    }
+    .left {
+      width: 140px;
+      .avatar {
+        .round(91px);
+        margin: 23px;
+        .add-background-color(red);
+      }
+    }
+    .right {
+      width: 594px;
+      & > div {
+        width: inherit;
+      }
+      .head {
+        height: 91px;
+        padding-top: 25px;
+        .name-wrapper{
+          width: inherit;
+          margin-bottom: 11px;
+          span.name {
+            font-size: @F3;
+            color: @0321;
+          }
+          span.time-distance {
+            font-size: @F4;
+            color: @0322;
+            float: right;
+          }
+        }
+        .female-block {
+        .sex-block(#FF3657);
+        }
+        .lv-block{
+          .sex-block(#44CF89)
+        }
+      }
+      .content {
+        height: 75px;
+        font-size: @F3;
+        color:@0322;
+      }
+      .pics {
+        height: 24px;
+      }
+      .thumb-bar {
+        height: 36px;
+      }
+    }
+  }
+  .comment {
+    height: @WHOLE_HEIGHT - @TOP_BAR_MARGIN - 500px;
+  }
+}
