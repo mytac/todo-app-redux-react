@@ -39,69 +39,73 @@
 @F5: 22px;
 @F6: 20px;
 .mask() {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
 }
 
 // flexbox兼容性写法
 .display-flex() {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 }
 
 .flex(@ratio: 1) {
-    -webkit-box-flex: @ratio;
-    -moz-box-flex: @ratio;
-    -webkit-flex: @ratio;
-    -ms-flex: @ratio;
-    flex: @ratio;
+  -webkit-box-flex: @ratio;
+  -moz-box-flex: @ratio;
+  -webkit-flex: @ratio;
+  -ms-flex: @ratio;
+  flex: @ratio;
 }
 
 .justify-content(@pos) {
-    -webkit-box-pack: @pos;
-    -webkit-justify-content: @pos;
-    -moz-justify-content: @pos;
-    -ms-justify-content: @pos;
-    -o-justify-content: @pos;
-    justify-content: @pos;
+  -webkit-box-pack: @pos;
+  -webkit-justify-content: @pos;
+  -moz-justify-content: @pos;
+  -ms-justify-content: @pos;
+  -o-justify-content: @pos;
+  justify-content: @pos;
 }
 
 .align-items(@pos) {
-    -webkit-box-align: @pos;
-    /* 12版 */
-    -webkit-align-items: @pos;
-    -moz-align-items: @pos;
-    -ms-align-items: @pos;
-    -o-align-items: @pos;
-    align-items: @pos;
+  -webkit-box-align: @pos;
+  /* 12版 */
+  -webkit-align-items: @pos;
+  -moz-align-items: @pos;
+  -ms-align-items: @pos;
+  -o-align-items: @pos;
+  align-items: @pos;
 }
 
 // transform
 .transform(@param) {
-    transform: @param;
-    -ms-transform: @param;
-    -webkit-transform: @param;
-    -o-transform: @param;
-    -moz-transform: @param;
+  transform: @param;
+  -ms-transform: @param;
+  -webkit-transform: @param;
+  -o-transform: @param;
+  -moz-transform: @param;
+}
+
+.transform-black {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 @root: 100rem;
 // reset.css
 html {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 html,
@@ -123,49 +127,63 @@ form,
 input,
 pre,
 button {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:focus {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 input,
 button {
-    background: 0 none;
-    border: 0 none;
-    outline: 0 none;
+  background: 0 none;
+  border: 0 none;
+  outline: 0 none;
 }
 
 @font-face {
-    font-family:'iconfont';
-    src:    url('../fonts/icomoon.eot?p04hk7');
-    src:    url('../fonts/icomoon.eot?p04hk7#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?p04hk7') format('truetype'),
-    url('../fonts/icomoon.woff?p04hk7') format('woff'),
-    url('../fonts/icomoon.svg?p04hk7#icomoon') format('svg');
+  font-family: 'iconfont';
+  src: url('../fonts/icomoon.eot?p04hk7');
+  src: url('../fonts/icomoon.eot?p04hk7#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?p04hk7') format('truetype'),
+  url('../fonts/icomoon.woff?p04hk7') format('woff'),
+  url('../fonts/icomoon.svg?p04hk7#icomoon') format('svg');
+}
+
+@font-face {
+  font-family: 'plaza';
+  src: url('../fonts/PlazaDReg.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Never_say_never';
+  src: url('../fonts/Never say never.ttf') format('truetype');
 }
 
 [class^='icon-'],
-[class*='icon-']{
-    font-family:'iconfont'!important ;
-    font-family:normal;
-    font-weight: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+[class*='icon-'] {
+  font-family: 'iconfont' !important;
+  font-family: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-female::before{
-    content:"\e94f";
+.icon-folder::before {
+  content: "\e92f";
 }
-
+.icon-folder-open::before{
+  content:"\e930";
+}
+.smoothing-font {
+  -webkit-font-smoothing: antialiased;
+}
 
