@@ -1,0 +1,32 @@
+@height:150px;
+@size:40px;
+
+.bottom-bar{
+  background-color:#fff;
+  position: fixed;
+  z-index:10;
+  width:100%;
+  height:@height;
+  line-height: @size;
+  vertical-align: middle;
+  bottom: 0;
+  left: 0;
+  &>div{
+    float: left;
+    display: inline-block;
+  }
+  .title{
+    padding-left: 50px;
+    font-size: @size/2;
+  }
+  .round{
+    width:@size;
+    height:@size;
+    border-radius: 50%;
+    background-color: #a1acb5;
+    margin-left: 10px;
+    color:#fff;
+    font-size: @size/1.5;
+    text-align: center;
+  }
+}
