@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import TaskNumBoard from '../list/TaskNumBoard'
+import ProgressBar from '../ProgressBar'
 
 const getDate=()=>{
     const mydate=new Date()
@@ -9,15 +10,19 @@ const getDate=()=>{
 export default class TopBar extends Component{
     render(){
         return(
-            <div className="top-bar">
-                <div>
-                    <div className="title">TODO THINGS</div>
-                    <div className="date">{getDate()}</div>
+            <div>
+                <div className="top-bar">
+                    <div>
+                        <div className="title">TODO THINGS</div>
+                        <div className="date">{getDate()}</div>
+                    </div>
+                    <div className="taskNum-block">
+                        <TaskNumBoard/>
+                    </div>
                 </div>
-                <div className="taskNum-block">
-                    <TaskNumBoard/>
-                </div>
+                <ProgressBar ratio="90%"/>
             </div>
+
         )
     }
 }
