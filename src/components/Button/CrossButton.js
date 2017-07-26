@@ -5,9 +5,9 @@ import './style.less'
 export default function CrossButton({onClick,size,color}){
     const style={
         width:size,
-        height:size,
+        height:size||100,
         lineHeight:size,
-        backgroundColor:color
+        backgroundColor:color,
     }
 
     return(
