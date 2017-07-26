@@ -10,7 +10,7 @@ const getDate=()=>{
 export default class TopBar extends Component{
     render(){
         return(
-            <div>
+            <div className="top-bar-wrapper">
                 <div className="top-bar">
                     <div>
                         <div className="title">TODO THINGS</div>
