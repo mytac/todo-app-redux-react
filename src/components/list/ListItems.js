@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import NormalText from '../Content/NormalText'
+import CreateTime from '../time/CreateTime'
 
 export default class ListItems extends Component{
     render(){
@@ -9,7 +11,9 @@ export default class ListItems extends Component{
                     <span className="icon-folder-open"></span>
                 </div>
                 <div className="content">
-
+                    <CreateTime time="15"/>
+                    <NormalText text="121654"/>
+                    <NormalText text="121654"/>
                 </div>
             </li>
         )
