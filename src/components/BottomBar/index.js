@@ -5,7 +5,11 @@ export default function BottomBar({num}){
     return(
         <div className="bottom-bar">
             <div className="title">COMPLETED</div>
-            <div className="round">{10}</div>
+            <div className="round">{num}</div>
         </div>
     )
+}
+
+BottomBar.defaultProps={
+    num:0
 }
