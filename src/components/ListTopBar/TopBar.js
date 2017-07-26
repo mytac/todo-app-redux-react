@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
-import TaskNumBoard from './TaskNumBoard'
+import TaskNumBoard from '../list/TaskNumBoard'
+
 const getDate=()=>{
     const mydate=new Date()
     return mydate.toLocaleDateString().split('/').join(' - ')
