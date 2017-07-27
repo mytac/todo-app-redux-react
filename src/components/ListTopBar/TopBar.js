@@ -17,7 +17,8 @@ export default class TopBar extends Component{
                         <div className="date">{getDate()}</div>
                     </div>
                     <div className="taskNum-block">
-                        <TaskNumBoard/>
+                        <TaskNumBoard name="Personal" num="1"/>
+                        <TaskNumBoard name="Business" num="1"/>
                     </div>
                 </div>
                 <ProgressBar ratio="90%"/>

@@ -7,7 +7,10 @@ export default class List extends Component{
             {title:'meal',content:'with my boss',completed:true,time:'18'},
             {title:'meal',content:'with my boss',completed:false,time:'8'},
             {title:'meal',content:'with my boss',completed:true,time:'18'},
-            {title:'meal',content:'with my boss',completed:true,time:'18'}
+            {title:'meal',content:'with my boss',completed:true,time:'18'},
+            {title:'meal',content:'with my boss',completed:true,time:'18'},
+            {title:'meal',content:'with my boss',completed:true,time:'18'},
+            {title:'meal',content:'with my boss',completed:true,time:'18'},
         ]
         return(
             <div className="lists">
