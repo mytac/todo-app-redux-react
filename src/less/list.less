@@ -14,7 +14,9 @@
 
 .top-bar-wrapper{
   position: fixed;
+  z-index: 10;
   top:0;
+  opacity: 1;
 }
 .top-bar{
   width:@WHOLE_WIDTH;
@@ -56,7 +58,8 @@
 }
 
 .lists{
-  margin-top:450px;
+  position: relative;
+  top:450px;
   width:@WHOLE_WIDTH - 2*@LISTS-PADDING px;
   height:@WHOLE_HEIGHT - 450px;
   padding:0 @LISTS-PADDING;

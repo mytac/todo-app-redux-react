@@ -6,7 +6,6 @@ import CrossButton from './Button/CrossButton'
 import BottomBar from './BottomBar'
 
 import '../less/index.less'
-import '../less/list.less'
 
 export default function ListPage(){
     return(
