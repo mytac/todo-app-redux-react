@@ -1,29 +1,52 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import TaskNumBoard from '../list/TaskNumBoard'
-import ProgressBar from '../ProgressBar'
+import ProgressBar from '../Progress/Bar'
+import ProgressRing from '../Progress/Ring'
+import NormalText from '../Content/NormalText'
 
-const getDate=()=>{
-    const mydate=new Date()
+const textStyle = {
+    position: 'relative',
+    bottom: '145px',
+    left: '530px',
+    color: '#fff',
+    fontSize: '25px',
+    opacity: 0.8
+}
+
+const getDate = () => {
+    const mydate = new Date()
     return mydate.toLocaleDateString().split('/').join(' - ')
 }
 
-export default class TopBar extends Component{
-    render(){
-        return(
-            <div className="top-bar-wrapper">
-                <div className="top-bar">
-                    <div>
-                        <div className="title">TODO THINGS</div>
-                        <div className="date">{getDate()}</div>
-                    </div>
-                    <div className="taskNum-block">
-                        <TaskNumBoard name="Personal" num="1"/>
-                        <TaskNumBoard name="Business" num="1"/>
-                    </div>
+export default function TopBar({ratio, taskNumArr}) {
+    const [personalTaskNum, BusinessTaskNum] = taskNumArr
+    return (
+        <div className="top-bar-wrapper">
+            <div className="top-bar">
+                <div>
+                    <div className="title">TODO THINGS</div>
+                    <div className="date">{getDate()}</div>
                 </div>
-                <ProgressBar ratio="90%"/>
+                <div className="taskNum-block">
+                    <TaskNumBoard name="Personal" num={personalTaskNum}/>
+                    <TaskNumBoard name="Business" num={BusinessTaskNum}/>
+                </div>
             </div>
+            <ProgressBar ratio={ratio}/>
+            <ProgressRing ratio={ratio}/>
+            <NormalText text={`${ratio * 100}%  done`} style={textStyle}/>
+        </div>
 
-        )
-    }
+    )
+}
+
+TopBar.propTypes = {
+    ratio: PropTypes.number.isRequired,
+    taskNumArr: PropTypes.array.isRequired,
+}
+
+TopBar.defaultProps={
+    taskNumArr:[0,0],
+    ratio:1
 }

@@ -15,9 +15,7 @@ const transformStyle=(deg)=>({
 
 export default function ProgressRing({ratio}){
     ratio=ratio<1?ratio:1
-
     const {innerDeg,outerDeg}=handleRatioToDeg(ratio)
-    console.log(innerDeg,outerDeg)
     return(
         <div className="progress-ring">
             <div className="outer-circle" style={transformStyle(outerDeg)}/>

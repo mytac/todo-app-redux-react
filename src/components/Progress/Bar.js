@@ -5,7 +5,7 @@ import './style.less'
 export default function ProgressBar({ratio}){
     return(
         <div className="progress-wrapper">
-            <div className="progress-bar" style={{width:ratio}}></div>
+            <div className="progress-bar" style={{width:`${ratio*100}%`}}></div>
         </div>
 
     )
