@@ -7,7 +7,7 @@ import BottomBar from './BottomBar'
 
 import '../less/index.less'
 
-export default function ListPage(){
+export default function Root(){
     return(
         <div>
             <TopBar/>

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 
-import ListPageComponent from '../components/ListPageComponent'
+import Root from '../components/Root'
 render(
     <div>
-        <ListPageComponent/>
+        <Root/>
     </div>,
     document.getElementById('root')
 )
