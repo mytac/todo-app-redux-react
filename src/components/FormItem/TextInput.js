@@ -20,4 +20,5 @@ export default class TextInput extends React.Component {
 
 TextInput.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string.isRequired,
 };
