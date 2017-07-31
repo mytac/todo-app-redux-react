@@ -1,9 +1,9 @@
 import React from 'react';
 
-import TopBar from './../components/ListTopBar/TopBar';
+import TopBar from '../components/ListTopBar/TopBar';
 import List from '../containers/List';
-import CrossButton from './../components/Button/CrossButton';
-import BottomBar from './../components/BottomBar';
+import CrossButton from '../components/Button/CrossButton';
+import BottomBar from '../components/BottomBar/index';
 
 import '../less/index.less';
 

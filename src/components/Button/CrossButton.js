@@ -19,6 +19,8 @@ export default function CrossButton({ onClick, size, color }) {
 
 CrossButton.propTypes = {
   onClick: PropTypes.func.isRequired,
+  size: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 CrossButton.defaultProps = {
   size: '100px',
