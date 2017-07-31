@@ -1,0 +1,6 @@
+dist/*
+lib/*
+build/*
+coverage/*
+node_modules/*
+app/utils/pinyin/*
