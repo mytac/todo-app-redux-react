@@ -8,7 +8,7 @@ export default class Root extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAdd: false,
+      isAdd: true,
     };
     this.changeTab = this.changeTab.bind(this);
   }
