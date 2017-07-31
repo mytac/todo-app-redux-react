@@ -25,4 +25,5 @@ CrossButton.propTypes = {
 CrossButton.defaultProps = {
   size: '100px',
   color: '#3fa1ef',
+  onClick: () => {},
 };
