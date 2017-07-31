@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 
-import Root from '../components/Root'
+import Root from '../components/Root';
+
 render(
-    <div>
-        <Root/>
-    </div>,
-    document.getElementById('root')
-)
+  <div>
+    <Root />
+  </div>,
+  document.getElementById('root'),
+);
