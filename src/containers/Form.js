@@ -29,8 +29,11 @@ export default class Form extends React.Component {
   submit() {
     setTimeout(() => {
       if (Object.keys(this.state).length > 4) {
+        // 取出本地的存储
+        const storageArr = [].concat(JSON.parse(localStorage.getItem('todo-app')));
+        storageArr.push(this.state);
         // 存入本地
-        console.log(this.state);
+        localStorage.setItem('todo-app', JSON.stringify(storageArr));
       }
     }, 0);
   }
