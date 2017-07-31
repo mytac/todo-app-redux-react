@@ -16,6 +16,7 @@ module.exports = {
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx"]
     }],
-    "global-require":"off"
-  }
+    "global-require":"off",
+      'jsx-a11y/no-static-element-interactions': "off"
+  },
 };
