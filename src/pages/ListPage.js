@@ -21,7 +21,7 @@ const computedPassProps = (datas) => {
 };
 
 
-export default function Root({ changeTab, data }) {
+export default function ListPage({ changeTab, data }) {
   const { ratio, taskNumArr, num } = computedPassProps(data);
   return (
     <div>
@@ -33,7 +33,7 @@ export default function Root({ changeTab, data }) {
   );
 }
 
-Root.propTypes = {
+ListPage.propTypes = {
   changeTab: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape(
