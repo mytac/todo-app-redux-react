@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextInput from '../components/FormItem/TextInput';
 import RadioSelection from '../components/FormItem/RadioSelection';
 import SquareButton from '../components/Button/SquareButton';
@@ -14,6 +15,7 @@ export default class Form extends React.Component {
   selectItem(e) {
     this.setState({
       category: e.target.value,
+      completed: false,
     });
   }
 
@@ -28,12 +30,13 @@ export default class Form extends React.Component {
 
   submit() {
     setTimeout(() => {
-      if (Object.keys(this.state).length > 4) {
+      if (Object.keys(this.state).length > 5) {
         // 取出本地的存储
-        const storageArr = [].concat(JSON.parse(localStorage.getItem('todo-app')));
+        const storageArr = this.props.data;
         storageArr.push(this.state);
         // 存入本地
         localStorage.setItem('todo-app', JSON.stringify(storageArr));
+        this.props.changeTab();
       }
     }, 0);
   }
@@ -51,3 +54,22 @@ export default class Form extends React.Component {
     );
   }
 }
+
+Form.propTypes = {
+  changeTab: PropTypes.func.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape(
+      {
+        completed: PropTypes.bool.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+        place: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+      },
+    ).isRequired,
+  ),
+};
+Form.defaultProps = {
+  data: [],
+};

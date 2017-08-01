@@ -8,7 +8,7 @@ export default class Root extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAdd: true,
+      isAdd: false,
     };
     this.changeTab = this.changeTab.bind(this);
   }
@@ -20,13 +20,17 @@ export default class Root extends React.Component {
   }
 
   render() {
+    // 空值处理
+    const storageData = JSON.parse(localStorage.getItem('todo-app'));
+    const passData = storageData instanceof Array ? storageData : [];
     return (
       <div>
         {this.state.isAdd
-          ? <AddPage changeTab={this.changeTab} />
-          : <ListPage changeTab={this.changeTab} />
+          ? <AddPage changeTab={this.changeTab} data={passData} />
+          : <ListPage changeTab={this.changeTab} data={passData} />
         }
       </div>
     );
   }
 }
+

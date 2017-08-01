@@ -8,7 +8,7 @@ import BottomBar from '../components/BottomBar/index';
 
 import '../less/index.less';
 
-export default function Root({ changeTab }) {
+export default function Root({ changeTab, data }) {
   return (
     <div>
       <TopBar />
@@ -21,4 +21,16 @@ export default function Root({ changeTab }) {
 
 Root.propTypes = {
   changeTab: PropTypes.func.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape(
+      {
+        completed: PropTypes.bool.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+        place: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+      },
+    ).isRequired,
+  ).isRequired,
 };

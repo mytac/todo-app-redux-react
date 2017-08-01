@@ -14,16 +14,28 @@ const textStyle = {
   textAlign: 'center',
 };
 
-export default function AddPage({ changeTab }) {
+export default function AddPage({ changeTab, data }) {
   return (
     <div className="add-page">
       <BackButton onClick={changeTab} />
       <NormalText text="Add new things" style={textStyle} />
-      <Form />
+      <Form changeTab={changeTab} />
     </div>
   );
 }
 
 AddPage.propTypes = {
   changeTab: PropTypes.func.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape(
+      {
+        completed: PropTypes.bool.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+        place: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+      },
+    ).isRequired,
+  ).isRequired,
 };
