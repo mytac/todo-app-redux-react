@@ -12,5 +12,5 @@ export default function ProgressBar({ ratio }) {
 }
 
 ProgressBar.propTypes = {
-  ratio: PropTypes.string.isRequired,
+  ratio: PropTypes.number.isRequired,
 };

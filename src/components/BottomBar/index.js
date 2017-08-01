@@ -11,6 +11,9 @@ export default function BottomBar({ num }) {
   );
 }
 
+BottomBar.propTypes = {
+  num: PropTypes.number.isRequired,
+};
 BottomBar.defaultProps = {
   num: 0,
 };

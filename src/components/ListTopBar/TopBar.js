@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TaskNumBoard from '../list/TaskNumBoard';
 import ProgressBar from '../Progress/Bar';
@@ -34,7 +34,7 @@ export default function TopBar({ ratio, taskNumArr }) {
         </div>
       </div>
       <ProgressBar ratio={ratio} />
-      <ProgressRing ratio={ratio} />
+      <ProgressRing ratio={ratio - 0} />
       <NormalText text={`${ratio * 100}%  done`} style={textStyle} />
     </div>
 
@@ -43,7 +43,9 @@ export default function TopBar({ ratio, taskNumArr }) {
 
 TopBar.propTypes = {
   ratio: PropTypes.number.isRequired,
-  taskNumArr: PropTypes.array.isRequired,
+  taskNumArr: PropTypes.arrayOf(
+    PropTypes.number.isRequired,
+  ),
 };
 
 TopBar.defaultProps = {

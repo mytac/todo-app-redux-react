@@ -12,6 +12,6 @@ const TaskNumBoard = ({ num, name }) => (
 export default TaskNumBoard;
 
 TaskNumBoard.propTypes = {
-  num: PropTypes.string.isRequired,
+  num: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
 };
