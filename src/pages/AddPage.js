@@ -19,7 +19,7 @@ export default function AddPage({ changeTab, data }) {
     <div className="add-page">
       <BackButton onClick={changeTab} />
       <NormalText text="Add new things" style={textStyle} />
-      <Form changeTab={changeTab} />
+      <Form changeTab={changeTab} data={data} />
     </div>
   );
 }

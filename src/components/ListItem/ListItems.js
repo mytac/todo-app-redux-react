@@ -5,14 +5,14 @@ import CreateTime from '../time/CreateTime';
 import Folder from '../Icon/Folder';
 
 export default function ListItems({ todo }) {
-  const { title, content, completed, time } = todo;
+  const { title, description, completed, time } = todo;
   return (
     <li className="todo">
       <Folder isDone={completed} />
       <div className="content">
         <CreateTime time={time} />
         <NormalText text={title} />
-        <NormalText text={content} style={{ color: '#ddd', fontSize: '30px' }} />
+        <NormalText text={description} style={{ color: '#ddd', fontSize: '30px' }} />
       </div>
     </li>
   );
@@ -21,7 +21,7 @@ export default function ListItems({ todo }) {
 ListItems.propTypes = {
   todo: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     completed: PropTypes.bool.isRequired,
     time: PropTypes.string.isRequired,
   }).isRequired,

@@ -1,25 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import ListItems from '../components/ListItem/ListItems';
 
-export default class List extends Component {
-  render() {
-    const todos = [
-      { title: 'meal', content: 'with my boss', completed: true, time: '18' },
-      { title: 'meal', content: 'with my boss', completed: false, time: '8' },
-      { title: 'meal', content: 'with my boss', completed: true, time: '18' },
-      { title: 'meal', content: 'with my boss', completed: true, time: '18' },
-      { title: 'meal', content: 'with my boss', completed: true, time: '18' },
-      { title: 'meal', content: 'with my boss', completed: true, time: '18' },
-      { title: 'meal', content: 'with my boss', completed: true, time: '18' },
-    ];
-    return (
-      <div className="lists">
-        <span className="mid-header">INBOX</span>
-        <ul>
-          {todos.map((todo, index) => <ListItems todo={todo} key={index} />)}
-        </ul>
-      </div>
-    );
-  }
+export default function List({ data }) {
+  return (
+    <div className="lists">
+      <span className="mid-header">INBOX</span>
+      <ul>
+        {data.map((todo, index) => <ListItems todo={todo} key={index} />)}
+      </ul>
+    </div>
+  );
 }
+
+List.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape(
+      {
+        completed: PropTypes.bool.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        time: PropTypes.string.isRequired,
+        place: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+      },
+    ).isRequired,
+  ),
+};
+List.defaultProps = {
+  data: [],
+};

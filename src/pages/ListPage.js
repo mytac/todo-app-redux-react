@@ -12,7 +12,7 @@ export default function Root({ changeTab, data }) {
   return (
     <div>
       <TopBar />
-      <List />
+      <List data={data} />
       <CrossButton onClick={changeTab} />
       <BottomBar />
     </div>
