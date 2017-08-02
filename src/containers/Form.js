@@ -37,7 +37,7 @@ export default class Form extends React.Component {
       if (Object.keys(this.state).length > 5) {
         // 取出本地的存储
         const storageArr = this.props.data;
-        storageArr.push(this.state);
+        storageArr.unshift(this.state)
         // 存入本地
         localStorage.setItem('todo-app', JSON.stringify(storageArr));
         this.props.changeTab();
