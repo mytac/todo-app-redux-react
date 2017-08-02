@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import moment from 'moment';
 import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import TextInput from '../components/FormItem/TextInput';
 import RadioSelection from '../components/FormItem/RadioSelection';
 import SquareButton from '../components/Button/SquareButton';
+
+const now = moment();
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -55,6 +58,7 @@ export default class Form extends React.Component {
         <TimePicker
           showSecond={false}
           className="time-picker"
+          defaultValue={now}
           onChange={this.pickeronChange}
           placeholder="chose the Time"
           use12Hours={false}
