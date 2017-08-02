@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import TimePicker from 'rc-time-picker';
+import 'rc-time-picker/assets/index.css';
 import TextInput from '../components/FormItem/TextInput';
 import RadioSelection from '../components/FormItem/RadioSelection';
 import SquareButton from '../components/Button/SquareButton';
@@ -7,6 +10,7 @@ import SquareButton from '../components/Button/SquareButton';
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
+    this.pickeronChange = this.pickeronChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submit = this.submit.bind(this);
     this.selectItem = this.selectItem.bind(this);
@@ -41,13 +45,23 @@ export default class Form extends React.Component {
     }, 0);
   }
 
+  pickeronChange(value) {
+    this.handleChange({ target: { value: value && value.format('hh:mm'), placeholder: 'Time' } });
+  }
+
   render() {
     return (
       <div>
+        <TimePicker
+          showSecond={false}
+          className="time-picker"
+          onChange={this.pickeronChange}
+          format={'hh:mm'}
+          placeholder="chose the Time"
+        />
         <RadioSelection selectItem={this.selectItem} />
         <TextInput handleChange={this.handleChange} placeholder="Title" />
         <TextInput handleChange={this.handleChange} placeholder="Description" />
-        <TextInput handleChange={this.handleChange} placeholder="Time" />
         <TextInput handleChange={this.handleChange} placeholder="Place" />
         <SquareButton text="ADD YOUR THING" onClick={this.submit} />
       </div>

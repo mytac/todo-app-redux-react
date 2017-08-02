@@ -27,7 +27,9 @@
   },
   "dependencies": {
     "less": "^2.7.2",
+    "moment": "^2.18.1",
     "prop-types": "^15.5.10",
+    "rc-time-picker": "^2.4.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   }

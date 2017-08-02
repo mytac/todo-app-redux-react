@@ -6,7 +6,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.less$/,
+        test: /\.(less|css)$/,
         use: [{
           loader: 'style-loader', // creates style nodes from JS strings
         }, {
