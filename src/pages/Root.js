@@ -6,6 +6,15 @@ import '../less/index.less';
 
 import { reassignStorage, getStorage } from '../utils/storageOpreation';
 
+// 数据拿出来放到队尾
+const dataGoDown = (index, data = []) => {
+  if (data === [] || data.length - 1 < index) return data;
+  const temp = data[index];
+  data.splice(index, 1);
+  data.push(temp);
+  return data;
+};
+
 export default class Root extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +40,7 @@ export default class Root extends React.Component {
       return tempObj;
     });
     this.setState({
-      data: tempData,
+      data: dataGoDown(index, tempData),
     });
     reassignStorage('todo-app', tempData);
   }
