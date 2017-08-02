@@ -56,8 +56,8 @@ export default class Form extends React.Component {
           showSecond={false}
           className="time-picker"
           onChange={this.pickeronChange}
-          format={'hh:mm'}
           placeholder="chose the Time"
+          use12Hours={false}
         />
         <RadioSelection selectItem={this.selectItem} />
         <TextInput handleChange={this.handleChange} placeholder="Title" />

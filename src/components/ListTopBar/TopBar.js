@@ -35,7 +35,7 @@ export default function TopBar({ ratio, taskNumArr }) {
       </div>
       <ProgressBar ratio={ratio} />
       <ProgressRing ratio={ratio - 0} />
-      <NormalText text={`${ratio * 100}%  done`} style={textStyle} />
+      <NormalText text={`${(`${ratio * 100}`).substr(0, 2)}%  done`} style={textStyle} />
     </div>
 
   );
