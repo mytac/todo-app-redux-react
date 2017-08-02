@@ -9,9 +9,19 @@ import { reassignStorage, getStorage } from '../utils/storageOpreation';
 // 数据拿出来放到队尾
 const dataGoDown = (index, data = []) => {
   if (data === [] || data.length - 1 < index) return data;
+
   const temp = data[index];
+
+  // 当选择后为【完成】状态时
+  if (data[index].completed) {
+    data.splice(index, 1);
+    data.push(temp);
+    return data;
+  }
+  // 选择后为【未完成】状态
   data.splice(index, 1);
-  data.push(temp);
+  const completedTaskNum = data.filter(obj => obj.completed === true).length;
+  data.splice(data.length - completedTaskNum, 0, temp);
   return data;
 };
 
