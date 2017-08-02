@@ -21,12 +21,12 @@ const computedPassProps = (datas) => {
 };
 
 
-export default function ListPage({ changeTab, data }) {
+export default function ListPage({ changeTab, data, isDone }) {
   const { ratio, taskNumArr, num } = computedPassProps(data);
   return (
     <div>
       <TopBar ratio={ratio} taskNumArr={taskNumArr} />
-      <List data={data} />
+      <List data={data} isDone={isDone} />
       <CrossButton onClick={changeTab} />
       <BottomBar num={num} />
     </div>
@@ -35,6 +35,7 @@ export default function ListPage({ changeTab, data }) {
 
 ListPage.propTypes = {
   changeTab: PropTypes.func.isRequired,
+  isDone: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape(
       {

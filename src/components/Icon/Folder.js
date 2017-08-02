@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './style.less';
 
-export default function Folder({ isDone }) {
+export default function Folder({ onClick, isDone }) {
   return (
-    <div className="type-icon">
+    <div className="type-icon" onClick={onClick}>
       <span className={`icon-folder${isDone ? '-open' : ''}`} />
     </div>
   );
@@ -13,4 +13,5 @@ export default function Folder({ isDone }) {
 
 Folder.propTypes = {
   isDone: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 };

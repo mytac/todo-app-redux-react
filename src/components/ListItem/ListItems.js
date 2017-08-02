@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import NormalText from '../Content/NormalText';
 import CreateTime from '../time/CreateTime';
 import Folder from '../Icon/Folder';
 
-export default function ListItems({ todo }) {
+export default function ListItems({ todo, onClick }) {
   const { title, description, completed, time } = todo;
   return (
     <li className="todo">
-      <Folder isDone={completed} />
+      <Folder isDone={completed} onClick={onClick} />
       <div className="content">
         <CreateTime time={time} />
         <NormalText text={title} />
@@ -25,4 +26,5 @@ ListItems.propTypes = {
     completed: PropTypes.bool.isRequired,
     time: PropTypes.string.isRequired,
   }).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
