@@ -63,13 +63,14 @@
 .lists{
   position: relative;
   top:450px;
-  width:@WHOLE_WIDTH - 2*@LISTS-PADDING;
+  width:@WHOLE_WIDTH - @LISTS-PADDING;
   height:100%;
-  padding:0 @LISTS-PADDING;
+  padding-left:@LISTS-PADDING;
   color:@LISTS-DEFAULT-COLOR;
   font-size:@F4;
   margin-bottom: 150px;
   .todo{
+    position: relative;
     width:inherit;
     height:100px;
     line-height:100px;
@@ -84,7 +85,7 @@
     }
     .content{
       float: left;
-      width:80%;
+      width:75%;
       height:inherit;
     }
   }

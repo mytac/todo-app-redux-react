@@ -35,6 +35,7 @@ export default class Root extends React.Component {
     };
     this.changeTab = this.changeTab.bind(this);
     this.isDone = this.isDone.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   changeTab() {
@@ -55,12 +56,26 @@ export default class Root extends React.Component {
     reassignStorage('todo-app', tempData);
   }
 
+  deleteTask(index) {
+    const data = [].concat(this.state.data);
+    data.splice(index, 1);
+    this.setState({
+      data,
+    });
+    reassignStorage('todo-app', data);
+  }
+
   render() {
     return (
       <div>
         {this.state.isAdd
           ? <AddPage changeTab={this.changeTab} data={this.state.data} />
-          : <ListPage changeTab={this.changeTab} data={this.state.data} isDone={this.isDone} />
+          : <ListPage
+            changeTab={this.changeTab}
+            data={this.state.data}
+            isDone={this.isDone}
+            deleteData={this.deleteTask}
+          />
         }
       </div>
     );
