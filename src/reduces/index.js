@@ -1,12 +1,10 @@
+import { combineReducers } from 'redux';
+
 import { CHANGE_TAB, ADD_TODO, TOGGLE_TODO, DELETE_TODO, pageFilters } from '../action';
 
-const { GO_LIST, GO_FORM } = pageFilters;
+const { GO_LIST } = pageFilters;
 
-// todo:这里最初的todo要从storage获取
-const initialState = {
-  pageFilter: GO_LIST,
-  todos: [],
-};
+// todo:最初的todo要从storage获取
 
 // 操作state.filter
 function filter(state = GO_LIST, action) {
@@ -42,26 +40,9 @@ function todos(state = [], action) {
   }
 }
 
-// reducer一定为纯函数，接受state和action，返回state
-// (previousState, action) => newState
-function todoApp(state = {}, action) {
-  return {
-    filter: filter(state.filter, action),
-    todos: todos(state.todos, action),
-  };
-}
+const todoApp = combineReducers({
+  filter,
+  todos,
+});
 
-// state tree
-const stateTree = {
-  filter: 'GO_LIST',
-  todos: [
-    {
-      text: '11',
-      place: '1',
-      time: '2:20',
-      content: 'dgusdguysdgisdhuis',
-      completed: false,
-    },
-  ],
-};
-
+export default todoApp;
