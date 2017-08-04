@@ -1,9 +1,22 @@
 import { CHANGE_TAB, ADD_TODO, TOGGLE_TODO, DELETE_TODO, pageFilters } from '../action';
+
+const { GO_LIST, GO_FORM } = pageFilters;
+
 // todo:这里最初的todo要从storage获取
 const initialState = {
-  pageFilter: pageFilters.GO_LIST,
+  pageFilter: GO_LIST,
   todos: [],
 };
+
+// 操作state.filter
+function filter(state = GO_LIST, action) {
+  switch (action.type) {
+    case CHANGE_TAB:
+      return action.filter;
+    default:
+      return state;
+  }
+}
 
 // 操作state.todos
 function todos(state = [], action) {
@@ -35,7 +48,7 @@ function todoApp(state = initialState, action) {
   switch (action.type) {
     case CHANGE_TAB:
       return Object.assign({}, state, {
-        filter: action.filter,
+        filter: filter(state.filter, action),
       });
     case ADD_TODO:
     case TOGGLE_TODO:
