@@ -23,11 +23,11 @@ function todos(state = [], action) {
   switch (action.type) {
     case ADD_TODO:
       return [
-        ...state.todos,
+        ...todos,
         action.newTodo,
       ];
     case TOGGLE_TODO:
-      return state.todos.map((todo, index) => {
+      return todos.map((todo, index) => {
         if (action.index === index) {
           return Object.assign({}, todo, {
             completed: !todo.completed,
@@ -36,7 +36,7 @@ function todos(state = [], action) {
         return todo;
       });
     case DELETE_TODO:
-      return [].concat(state.todos).splice(action.index, 1);
+      return [].concat(todos).splice(action.index, 1);
     default:
       return state;
   }
@@ -44,21 +44,11 @@ function todos(state = [], action) {
 
 // reducer一定为纯函数，接受state和action，返回state
 // (previousState, action) => newState
-function todoApp(state = initialState, action) {
-  switch (action.type) {
-    case CHANGE_TAB:
-      return Object.assign({}, state, {
-        filter: filter(state.filter, action),
-      });
-    case ADD_TODO:
-    case TOGGLE_TODO:
-    case DELETE_TODO:
-      return Object.assign({}, state, {
-        todos: todos(state.todos, action),
-      });
-    default:
-      return state;
-  }
+function todoApp(state = {}, action) {
+  return {
+    filter: filter(state.filter, action),
+    todos: todos(state.todos, action),
+  };
 }
 
 // state tree
