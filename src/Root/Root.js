@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import ListPage from '../components/pages/ListPage';
 import AddPage from '../components/pages/AddPage';
 import '../less/index.less';
@@ -25,7 +25,7 @@ const dataGoDown = (index, data = []) => {
   return data;
 };
 
-export default class Root extends React.Component {
+class Root extends React.Component {
   constructor(props) {
     super(props);
     const storageData = getStorage('todo-app');
@@ -66,6 +66,7 @@ export default class Root extends React.Component {
   }
 
   render() {
+    console.log('store', this.props);
     return (
       <div>
         {this.state.isAdd
@@ -82,3 +83,13 @@ export default class Root extends React.Component {
   }
 }
 
+// 构造一个函数返回需要的state
+const mapStateToProps = (state) => {
+  const { filter, todos } = state;
+  return {
+    filter,
+    todos,
+  };
+};
+// 使用connect将state作为props传入root中
+export default connect(mapStateToProps)(Root);

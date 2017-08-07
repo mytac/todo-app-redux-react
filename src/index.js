@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-
+import { Provider } from 'react-redux';
 import Root from './Root/Root';
 
 import todoApp from './reduces';
@@ -21,14 +21,14 @@ const unsubscribe = store.subscribe(() =>
   console.log(store.getState()),
 );
 // 发起action
-store.dispatch(changeTab(GO_FORM));
 
 // 停止监听 state 更新
 unsubscribe();
 
 render(
-  <div>
+  <Provider store={store}>
     <Root />
-  </div>,
+  </Provider>
+  ,
   document.getElementById('root'),
 );
