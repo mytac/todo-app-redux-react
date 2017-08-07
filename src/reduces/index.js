@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
 
 import { CHANGE_TAB, ADD_TODO, TOGGLE_TODO, DELETE_TODO, pageFilters } from '../action';
+import { getStorage } from '../utils/storageOpreation';
 
 const { GO_LIST } = pageFilters;
-
-// todo:最初的todo要从storage获取
 
 // 操作state.filter
 function filter(state = GO_LIST, action) {
@@ -16,16 +15,18 @@ function filter(state = GO_LIST, action) {
   }
 }
 
+// 最初的todo要从storage获取
+const listFromStorage = getStorage();
 // 操作state.todos
-function todos(state = [], action) {
+function todos(state = listFromStorage, action) {
   switch (action.type) {
     case ADD_TODO:
       return [
-        ...todos,
+        ...state,
         action.newTodo,
       ];
     case TOGGLE_TODO:
-      return todos.map((todo, index) => {
+      return state.map((todo, index) => {
         if (action.index === index) {
           return Object.assign({}, todo, {
             completed: !todo.completed,
@@ -34,7 +35,7 @@ function todos(state = [], action) {
         return todo;
       });
     case DELETE_TODO:
-      return [].concat(todos).splice(action.index, 1);
+      return [].concat(state).splice(action.index, 1);
     default:
       return state;
   }
