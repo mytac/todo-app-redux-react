@@ -4,7 +4,7 @@ import { CHANGE_TAB, ADD_TODO, TOGGLE_TODO, DELETE_TODO, pageFilters } from '../
 import { getStorage, reassignStorage } from '../utils/storageOpreation';
 
 const { GO_LIST } = pageFilters;
-const listFromStorage = getStorage();
+const listFromStorage = getStorage() || [];
 
 /* 数据拿出来放到队尾 */
 const dataGoDown = (index, data = []) => {
