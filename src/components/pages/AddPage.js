@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BackButton from '../components/Icon/LeftArrow';
-import NormalText from '../components/Content/NormalText';
-import Form from '../containers/Form';
+import BackButton from '../Icon/LeftArrow';
+import NormalText from '../Content/NormalText';
+import Form from '../../containers/Form';
 
-import '../less/addPage.less';
+import '../../less/addPage.less';
 
 const textStyle = {
   color: '#fff',

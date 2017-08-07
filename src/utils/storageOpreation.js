@@ -4,13 +4,11 @@ const resetStorage = () => {
 };
 
 // 重新赋值
-const reassignStorage = (key, value) => {
+const reassignStorage = (key = 'todo-app', value) => {
   resetStorage();
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-const getStorage = (key) => {
-  return JSON.parse(localStorage.getItem(key));
-};
+const getStorage = (key = 'todo-app') => JSON.parse(localStorage.getItem(key));
 
 export { resetStorage, reassignStorage, getStorage };

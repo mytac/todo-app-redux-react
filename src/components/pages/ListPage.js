@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TopBar from '../components/ListTopBar/TopBar';
-import List from '../containers/List';
-import CrossButton from '../components/Button/CrossButton';
-import BottomBar from '../components/BottomBar/index';
+import TopBar from '../ListTopBar/TopBar';
+import List from '../../containers/List';
+import CrossButton from '../Button/CrossButton';
+import BottomBar from '../BottomBar/index';
 
-import '../less/index.less';
+import '../../less/index.less';
 
 // 计算完成比率和任务类型分组
 const computedPassProps = (datas) => {
