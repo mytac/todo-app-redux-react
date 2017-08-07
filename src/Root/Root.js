@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ListPage from './ListPage';
-import AddPage from './AddPage';
+import ListPage from '../components/pages/ListPage';
+import AddPage from '../components/pages/AddPage';
 import '../less/index.less';
 
 import { reassignStorage, getStorage } from '../utils/storageOpreation';

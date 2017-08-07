@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 
-import Root from './pages/Root';
+import Root from './Root/Root';
 
 import todoApp from './reduces';
 import { addTodo, toggleTodo, changeTab, deleteTodo, pageFilters } from './action';
