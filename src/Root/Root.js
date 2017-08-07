@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListPage from '../components/pages/ListPage';
 import AddPage from '../components/pages/AddPage';
+import { changeTab, pageFilters } from '../action';
 import '../less/index.less';
 
 import { reassignStorage, getStorage } from '../utils/storageOpreation';
@@ -67,12 +69,13 @@ class Root extends React.Component {
 
   render() {
     console.log('store', this.props);
+    const { goPages, filter } = this.props;
     return (
       <div>
-        {this.state.isAdd
-          ? <AddPage changeTab={this.changeTab} data={this.state.data} />
+        {filter === pageFilters.GO_FORM
+          ? <AddPage changeTab={() => goPages(pageFilters.GO_LIST)} data={this.state.data} />
           : <ListPage
-            changeTab={this.changeTab}
+            changeTab={() => goPages(pageFilters.GO_FORM)}
             data={this.state.data}
             isDone={this.isDone}
             deleteData={this.deleteTask}
@@ -83,6 +86,17 @@ class Root extends React.Component {
   }
 }
 
+Root.propTypes = {
+  goPages: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+};
+
+// 构造一个函数来分发action
+const mapDispatchToProps = dispatch => ({
+  goPages: (pageName) => {
+    dispatch(changeTab(pageName));
+  },
+});
 // 构造一个函数返回需要的state
 const mapStateToProps = (state) => {
   const { filter, todos } = state;
@@ -92,4 +106,4 @@ const mapStateToProps = (state) => {
   };
 };
 // 使用connect将state作为props传入root中
-export default connect(mapStateToProps)(Root);
+export default connect(mapStateToProps, mapDispatchToProps)(Root);
