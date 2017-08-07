@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListPage from '../components/pages/ListPage';
 import AddPage from '../components/pages/AddPage';
-import { changeTab, pageFilters } from '../action';
+import { changeTab, toggleTodo, pageFilters } from '../action';
 import '../less/index.less';
 
 import { reassignStorage, getStorage } from '../utils/storageOpreation';
@@ -35,15 +35,8 @@ class Root extends React.Component {
       isAdd: false,
       data: storageData instanceof Array ? storageData : [],
     };
-    this.changeTab = this.changeTab.bind(this);
     this.isDone = this.isDone.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
-  }
-
-  changeTab() {
-    this.setState({
-      isAdd: !this.state.isAdd,
-    });
   }
 
   isDone(index) {
@@ -69,15 +62,15 @@ class Root extends React.Component {
 
   render() {
     console.log('store', this.props);
-    const { goPages, filter } = this.props;
+    const { goPages, filter, todos, isDone } = this.props;
     return (
       <div>
         {filter === pageFilters.GO_FORM
-          ? <AddPage changeTab={() => goPages(pageFilters.GO_LIST)} data={this.state.data} />
+          ? <AddPage changeTab={() => goPages(pageFilters.GO_LIST)} data={todos} />
           : <ListPage
             changeTab={() => goPages(pageFilters.GO_FORM)}
-            data={this.state.data}
-            isDone={this.isDone}
+            data={todos}
+            isDone={isDone}
             deleteData={this.deleteTask}
           />
         }
@@ -88,13 +81,19 @@ class Root extends React.Component {
 
 Root.propTypes = {
   goPages: PropTypes.func.isRequired,
+  isDone: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
+  todos: PropTypes.array.isRequired,
 };
 
 // 构造一个函数来分发action
 const mapDispatchToProps = dispatch => ({
   goPages: (pageName) => {
     dispatch(changeTab(pageName));
+  },
+  isDone: (index) => {
+    console.log(index)
+    dispatch(toggleTodo(index));
   },
 });
 // 构造一个函数返回需要的state
