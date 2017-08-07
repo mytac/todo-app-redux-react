@@ -17,6 +17,9 @@ export default class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.submit = this.submit.bind(this);
     this.selectItem = this.selectItem.bind(this);
+    this.state = {
+      time: now.format('HH:mm'),
+    };
   }
 
   selectItem(e) {
@@ -40,7 +43,7 @@ export default class Form extends React.Component {
       if (Object.keys(this.state).length > 5) {
         // 取出本地的存储
         const storageArr = this.props.data;
-        storageArr.unshift(this.state)
+        storageArr.unshift(this.state);
         // 存入本地
         localStorage.setItem('todo-app', JSON.stringify(storageArr));
         this.props.changeTab();
@@ -49,7 +52,7 @@ export default class Form extends React.Component {
   }
 
   pickeronChange(value) {
-    this.handleChange({ target: { value: value && value.format('hh:mm'), placeholder: 'Time' } });
+    this.handleChange({ target: { value: value && value.format('HH:mm'), placeholder: 'Time' } });
   }
 
   render() {
