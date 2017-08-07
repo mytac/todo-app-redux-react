@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListPage from '../components/pages/ListPage';
 import AddPage from '../components/pages/AddPage';
-import { changeTab, toggleTodo, pageFilters } from '../action';
+import { changeTab, toggleTodo, deleteTodo, pageFilters } from '../action';
 import '../less/index.less';
 
 import { reassignStorage, getStorage } from '../utils/storageOpreation';
@@ -62,7 +62,7 @@ class Root extends React.Component {
 
   render() {
     console.log('store', this.props);
-    const { goPages, filter, todos, isDone } = this.props;
+    const { goPages, filter, todos, isDone, deleteTask } = this.props;
     return (
       <div>
         {filter === pageFilters.GO_FORM
@@ -71,7 +71,7 @@ class Root extends React.Component {
             changeTab={() => goPages(pageFilters.GO_FORM)}
             data={todos}
             isDone={isDone}
-            deleteData={this.deleteTask}
+            deleteData={deleteTask}
           />
         }
       </div>
@@ -82,6 +82,7 @@ class Root extends React.Component {
 Root.propTypes = {
   goPages: PropTypes.func.isRequired,
   isDone: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
   todos: PropTypes.array.isRequired,
 };
@@ -92,8 +93,10 @@ const mapDispatchToProps = dispatch => ({
     dispatch(changeTab(pageName));
   },
   isDone: (index) => {
-    console.log(index)
     dispatch(toggleTodo(index));
+  },
+  deleteTask: (index) => {
+    dispatch(deleteTodo(index));
   },
 });
 // 构造一个函数返回需要的state
