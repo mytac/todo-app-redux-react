@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Root from './Root/Root';
+import PCWarning from './Root/PCWarning';
 
 import todoApp from './reduces';
 
@@ -11,10 +12,14 @@ import todoApp from './reduces';
 // createStore第二个参数是可选的, 用于设置 state 初始状态
 const store = createStore(todoApp);
 
+const deviceWidth = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+
 render(
-  <Provider store={store}>
-    <Root />
-  </Provider>
+  deviceWidth > 760
+    ? <PCWarning />
+    : (<Provider store={store}><Root /></Provider>)
   ,
   document.getElementById('root'),
 );
