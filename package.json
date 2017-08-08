@@ -29,6 +29,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "less": "^2.7.2",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
