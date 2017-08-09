@@ -1,11 +1,10 @@
-import { combineReducers } from 'redux';
 import { getStorage } from '../utils/storageOpreation';
 
 import { FETCH_POSTS_REQUEST, FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS, RECEIVE_POSTS } from '../action/request';
 
 const listFromStorage = getStorage() || [];
 
-function status(state = '', action) {
+export function status(state = '', action) {
   switch (action.type) {
     case FETCH_POSTS_REQUEST:
       return '';
@@ -18,7 +17,7 @@ function status(state = '', action) {
   }
 }
 
-function list(state = [], action) {
+export function list(state = [], action) {
   switch (action.type) {
     case RECEIVE_POSTS:
       return listFromStorage;
@@ -27,9 +26,3 @@ function list(state = [], action) {
   }
 }
 
-const requestReducer = combineReducers({
-  status,
-  list,
-});
-
-export default requestReducer;

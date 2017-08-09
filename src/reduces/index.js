@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import { CHANGE_TAB, ADD_TODO, TOGGLE_TODO, DELETE_TODO, pageFilters } from '../action';
 import { getStorage, reassignStorage } from '../utils/storageOpreation';
+import { status, list } from './request';
 
 const { GO_LIST } = pageFilters;
 const listFromStorage = getStorage() || [];
@@ -73,6 +74,8 @@ function filter(state = GO_LIST, action) {
 const todoApp = combineReducers({
   todos,
   filter,
+  status,
+  list,
 });
 
 export default todoApp;
