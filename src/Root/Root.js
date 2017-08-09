@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ListPage from '../components/pages/ListPage';
 import AddPage from '../components/pages/AddPage';
+import Loading from '../components/pages/Loading';
 import { changeTab, toggleTodo, deleteTodo, pageFilters } from '../action';
 import '../less/index.less';
 
@@ -19,16 +20,12 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 // 构造一个函数返回需要的state
-const mapStateToProps = (state) => {
-  const { filter, todos } = state;
-  return {
-    filter,
-    todos,
-  };
-};
+const mapStateToProps = state => state;
 
-const Root = ({ goPages, filter, todos, isDone, deleteTask }) => (
-  <div>
+const Root = ({ goPages, filter, todos, status, isDone, deleteTask }) => {
+  if (status !== 'success') return <Loading />;
+
+  return (<div>
     {filter === pageFilters.GO_FORM
       ? <AddPage changeTab={() => goPages(pageFilters.GO_LIST)} data={todos} />
       : <ListPage
@@ -39,9 +36,11 @@ const Root = ({ goPages, filter, todos, isDone, deleteTask }) => (
       />
     }
   </div>
-);
+  );
+};
 
 Root.propTypes = {
+  status: PropTypes.string.isRequired,
   goPages: PropTypes.func.isRequired,
   isDone: PropTypes.func.isRequired,
   deleteTask: PropTypes.func.isRequired,
